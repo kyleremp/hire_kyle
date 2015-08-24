@@ -1,0 +1,13 @@
+<%= link_to("Admin User Login", {:controller => 'access', :action => 'login'}) %>
+<h1>Jobs Board</h1>
+<p>Welcome to our jobs board. Please browse the postings and click the "Apply" link to apply for a position</p>
+
+<% @jobs.each do |job| %>
+	<div>
+		<h2><%= job.title %> </h2>
+		<div>
+			<%= job.description %>
+		</div>
+		<%= link_to('Apply', {:job_id => job.id, :controller => 'job_applications',  :action => 'new'}) %> 
+	</div>
+<% end %>

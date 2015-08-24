@@ -1,0 +1,17 @@
+<h1>Login Form</h1>
+
+<%=form_tag(:action => 'attempt_login') do %>
+	<table>
+		<tr>
+			<td>Username: </td>
+			<td><%= text_field_tag(:username) %></td>
+		</tr>
+		<tr>
+			<td>Password: </td>
+			<td><%= password_field_tag(:password) %></td>
+		</tr>
+		<tr>
+			<td colspan="2"><%= submit_tag('Login') %></td>
+		</tr>
+	</table>
+<% end %>

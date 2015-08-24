@@ -1,0 +1,19 @@
+<%= link_to("<<Back", {:controller => 'jobs', :action => 'manage'}) %>
+
+<h1>Edit: <%= @job.title %></h1>
+
+	<%=form_for(:job, :url => {:controller => 'jobs', :action => 'update', :id => @job.id}) do |f| %>
+	<table>
+		<tr>
+			<td>Title: </td>
+			<td><%= f.text_field(:title) %></td>
+		</tr>
+		<tr>
+			<td>Description</td>
+			<td><%= f.text_area(:description) %></td>
+		</tr>
+		<tr>
+			<td colspan="2"><%= f.submit("Update Job") %></td>
+		</tr>
+	</table>
+	<% end %> 

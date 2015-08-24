@@ -1,0 +1,22 @@
+<h1>Candidates for: <%= @job.title %></h1>
+
+<table>
+	<thead>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Phone</th>
+		<th>Resume</th>
+		<th>Cover Letter</th>
+	</thead>
+	<% @candidates.each do |candidate| %>
+	<tr>
+		<td><%= candidate.name %></td>
+		<td><%= candidate.email %></td>
+		<td><%= candidate.phone %></td>
+		<td><%= link_to("Resume", candidate.resume.url) %></td>
+		<td><%= link_to("Cover Letter", candidate.letter.url) %></td>
+	</tr>
+	<% end %> 
+</table>
+	
+

@@ -1,0 +1,20 @@
+<%= link_to("Logout", {:controller => 'access', :action => 'logout'}) %> 
+<h1>Manage Job Postings</h1>
+
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Title</th>
+				<th>Actions:</th>
+		</thead>
+		<% @jobs.each do |job| %>
+		<tr>
+			<td><%= job.id %></td>
+			<td><%= job.title %></td>
+			<td><%= link_to("Edit", {:controller => 'jobs', :action => 'edit', :id => job.id })%> | Delete | <%= link_to("Candidates", {:controller => 'jobs', :action => 'candidates', :id => job.id}) %></td>
+		</tr>
+		<% end %> 
+	</table>
+	<%= link_to("Create New Job", :action => 'new') %> 
+

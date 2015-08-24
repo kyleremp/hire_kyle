@@ -1,0 +1,36 @@
+<h1>Application for: <%= @job.title %></h1>
+
+<%=form_for(:job_application, :url=> {:action => 'create'}, html: { multipart: true }) do |f| %>
+<table>
+	<tr>
+		<td>Name: </td>
+		<td><%=f.text_field(:name) %></td>
+	</tr>
+	<tr>
+		<td>Email: </td>
+		<td><%=f.text_field(:email) %></td>
+	</tr>
+	<tr>
+		<td>Phone: </td>
+		<td><%=f.text_field(:phone) %></td>
+	</tr>
+	<tr>
+		<td>Resume: </td>
+		<td><%=f.file_field(:resume) %></td>
+	</tr>
+		<tr>
+		<td>Cover Letter: </td>
+		<td><%=f.file_field(:letter) %></td>
+	</tr>
+	<tr>
+		<td colspan="2"><%=f.hidden_field :job_id, :value => params[:job_id]%></td>
+	</tr>
+	<tr>
+		<td colspan="2"><%= f.submit('Submit Application') %></td>
+	</tr>
+</table>
+
+<%=link_to("<<Back", {:controller => 'jobs', :action => 'index'}) %>
+
+<% end %>
+
