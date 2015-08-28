@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
 
-  before_action :confirm_logged_in, :except => [:index]
+  # before_action :confirm_logged_in, :except => [:index]
 
   def index
   	@jobs = Job.all
@@ -54,7 +54,7 @@ class JobsController < ApplicationController
 
   def confirm_logged_in
     unless session[:user_id]
-      flash[:notice] = 'Please login.'
+      flash[:notice] = 'Please log in.'
       redirect_to({:controller => 'access', :action => 'login'})
       return false
     else

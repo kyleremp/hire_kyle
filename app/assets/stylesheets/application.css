@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+*{
+	font-family: Helvetica, arial, sans-serif; 
+}
+
+h1,h2,h3{
+	color:#7AB029;
+}
+
+table{
+	border-collapse: collapse;
+}
+
+table tr th{
+	padding:8px;
+	border: 1px solid #7AB029;
+	background-color:#7AB029;
+	color:#eee;
+}
+
+table tr td{
+	border: 1px solid #c3c3c3;
+	padding:8px;
+}

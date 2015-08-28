@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # get 'jobs/:id/apply' => 'jobs#apply'
   # get 'login' => 'access#login'
   get 'jobs/manage' => 'jobs#manage_jobs'
+  get 'access/create' => 'access#create', :via => [:get, :post]
 
   match ':controller(/:action(/:id))', :via => [:get, :post]
 

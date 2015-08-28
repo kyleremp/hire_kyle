@@ -1,0 +1,5 @@
+<h1>Account Info For: <%=@admin_user.username %></h1>
+
+<p>Hello <%= @admin_user.name %></p>
+<%= link_to('Manage Jobs', {:controller => 'jobs', :action => 'manage_jobs'})%>
+<%= link_to('Logout', {:controller => 'access', :action => 'logout'})%> 

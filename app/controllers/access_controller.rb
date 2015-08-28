@@ -1,6 +1,24 @@
 class AccessController < ApplicationController
 
-	def login
+
+  def new
+    @admin_user = AdminUser.new()
+    render('create_again')
+  end
+
+  def create
+    @admin_user = AdminUser.new(admin_params)
+    if @admin_user.save
+      flash[:notice] = "Account created. Please login."
+      redirect_to({:action => 'login'})
+    else
+      flash[:notice] = "There was a problem creating your account, please try again."
+      render('create')
+    end
+  end
+
+
+  def login
 		render('login')
 	end
 		
@@ -16,7 +34,7 @@ class AccessController < ApplicationController
       session[:user_id] = authorized_user.id
       session[:username] = authorized_user.username
       flash[:notice] = "You are now logged in."
-      redirect_to(:controller => 'jobs', :action => 'manage')
+      redirect_to(:controller => 'access', :action => 'account')
     else
       flash[:notice] = "Invalid username/password combination."
       redirect_to(:action => 'login')
@@ -29,6 +47,16 @@ class AccessController < ApplicationController
     session[:username] = nil
     flash[:notice] = "Logged out"
     redirect_to(:action => "login")
+  end
+
+  def account
+    @admin_user = AdminUser.where(:username => session[:username]).first
+  end
+
+  private
+
+  def admin_params
+    params.require(:admin_user).permit(:name, :username, :email, :password)
   end
 
 end
